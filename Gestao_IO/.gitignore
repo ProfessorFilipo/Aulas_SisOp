@@ -1,0 +1,8 @@
+# arquivos gerados pelos exemplos
+dados_teste.bin
+escrita_teste.bin
+mapeado.bin
+privilegiada
+__pycache__/
+*.pyc
+.DS_Store
