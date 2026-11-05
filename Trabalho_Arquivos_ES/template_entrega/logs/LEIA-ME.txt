@@ -1,0 +1,3 @@
+# Coloque aqui a saída bruta de cada execução, sem edição.
+# Nome: <experimento>_<sistema>_<sf>.log  (ex.: A1_S1_F1.log, B3_S2.log, C_S1_F2.log)
+# Apague este arquivo LEIA-ME.txt antes de entregar.
