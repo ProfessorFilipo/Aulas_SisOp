@@ -1,14 +1,21 @@
 # Relatório — SimES: simulador de E/S e de sistema de arquivos
 
+**Integrantes:** [nome completo de TODOS os integrantes, separados por vírgula]
+
+**Repositório:** [https://github.com/usuario/repositorio — o repositório público do grupo]
+
 <!--
 INSTRUÇÕES DO MODELO (apaguem este bloco antes de entregar)
+- Este relatório é a entrega: exportem-no para PDF e CADA integrante envia o PDF no Moodle.
+- Nomes completos de todos os integrantes e o link do repositório público são obrigatórios
+  (linhas acima). Não coloquem matrícula, e-mail, telefone ou outro dado pessoal.
 - Mantenham EXATAMENTE os títulos numerados (## 0. ... ## 8.) e os campos em negrito.
 - Na seção 3, mantenham X1 a X5 e só as seções dos experimentos do escopo do grupo
   (M1 = X6, M2 = X7, M3 = X8, M4 = X9, M5 = X10, M6 = X11, integração = X12, bônus = X13).
   Apaguem as seções dos experimentos que o grupo não fez.
 - Substituam todo texto entre colchetes [ ... ] pelo conteúdo do grupo.
 - O campo **Veredito:** aceita só: CONFIRMADA, PARCIALMENTE CONFIRMADA ou REFUTADA.
-- Em **Evidências:**, citem arquivos que existam na entrega (resultados/..., graficos/...).
+- Em **Evidências:**, citem arquivos que existam no repositório (resultados/..., graficos/...).
 - Antes de entregar, rodem:  python3 ferramentas/validar_entrega.py
 -->
 

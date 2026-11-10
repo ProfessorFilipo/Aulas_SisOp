@@ -5,7 +5,8 @@ Sistemas Operacionais · PUCRS · Prof. Filipo Novo Mór · [filipomor.com](http
 O enunciado completo (escopo, regras, entrega e avaliação) é distribuído pelo professor.
 Este README explica como usar o código.
 
-**Entrega: 24/11/2026, até 23h59.**
+**Entrega: 26/11/2026, até 23h59.** Cada integrante envia o relatório final no Moodle; o código
+fica no repositório público do grupo, citado no relatório.
 
 ## Requisitos
 
@@ -15,11 +16,16 @@ Este README explica como usar o código.
 
 ## Primeiros passos
 
+1. No GitHub (ou outro serviço), criem um repositório **público** novo, vazio, só para este trabalho.
+2. Clonem esse repositório e copiem para dentro dele o conteúdo desta pasta:
+
 ```bash
-git pull                                   # no repositório Aulas_SisOp
-cp -r Trabalho_IO_2026II ~/meu_trabalho    # trabalhem numa CÓPIA da pasta
-cd ~/meu_trabalho
-python3 executar.py testes                 # os testes do núcleo falham até vocês implementarem
+cd Aulas_SisOp && git pull && cd ..                     # atualiza o repositório da disciplina
+git clone https://github.com/<usuario>/<repositorio>.git
+cp -r Aulas_SisOp/Trabalho_IO_2026II/. <repositorio>/   # o "/." copia também o .gitignore
+cd <repositorio>
+git add . && git commit -m "Esqueleto do SimES" && git push
+python3 executar.py testes                              # os testes do núcleo falham até vocês implementarem
 ```
 
 ## Estrutura
@@ -41,7 +47,7 @@ python3 executar.py testes                 # os testes do núcleo falham até vo
 | `experimentos.py` | Experimentos X1 a X13 | Não |
 | `graficos.py` | Gráficos padrão | Podem acrescentar |
 | `testes/` | Testes automáticos | Podem acrescentar |
-| `RELATORIO.md`, `grupo.json` | Modelos da entrega | Preencham |
+| `RELATORIO.md`, `grupo.json` | Modelo do relatório final e dados do grupo | Preencham |
 | `ferramentas/validar_entrega.py` | Confere a entrega | Não |
 
 Os pontos a implementar estão marcados com `TODO` e lançam `NotImplementedError` até serem
@@ -83,10 +89,28 @@ Os experimentos de módulos não implementados aparecem como `nao_implementado` 
 | X12 | integração | Cargas de arquivos passando pela cache e pelo escalonador |
 | X13 | bônus | Armazenamento flash × disco rígido |
 
-## Entrega
+## Entrega (até 26/11/2026, 23h59)
 
-1. `python3 executar.py experimentos` e `python3 graficos.py`.
-2. Preencham `grupo.json` e `RELATORIO.md`.
-3. `python3 ferramentas/validar_entrega.py` até não haver erros.
-4. Apaguem as pastas `__pycache__` e compactem a pasta inteira em `SisOp_TP_IO_<sobrenomes>.zip`.
-5. Um integrante envia o arquivo pelo Moodle até **24/11/2026, 23h59**.
+1. Rodem `python3 executar.py experimentos` e `python3 graficos.py`, e façam commit também de
+   `resultados/` e `graficos/`: o relatório cita esses arquivos como evidência.
+2. Preencham `grupo.json` (nomes completos, link do repositório, módulos escolhidos) e
+   `RELATORIO.md` (no topo: o nome completo de TODOS os integrantes e o link do repositório).
+3. Rodem `python3 ferramentas/validar_entrega.py` até não haver erros, e deem `git push`.
+4. Confiram que o repositório é público: abram o link numa janela anônima do navegador.
+5. Exportem o relatório para PDF (por exemplo: abram o `RELATORIO.md` no GitHub e usem
+   Imprimir → Salvar como PDF).
+6. **Cada integrante** envia o PDF do relatório no Moodle. Só o relatório é enviado; código,
+   resultados e gráficos ficam no repositório.
+
+O professor considera o repositório no estado em que estava no prazo de entrega; commits
+posteriores podem ser desconsiderados.
+
+## Dados sensíveis
+
+O repositório é público. **Não incluam** matrícula, e-mail, telefone, CPF ou outros dados
+pessoais; senhas, tokens ou chaves de API; arquivos `.env` ou de configuração pessoal. Os nomes
+dos integrantes aparecem no relatório e no `grupo.json`; nada além disso.
+
+O validador procura alguns desses padrões, mas a responsabilidade é do grupo. Se algo sensível
+for parar num commit, apagar o arquivo depois não basta: ele continua no histórico do git.
+Troquem a senha ou o token imediatamente e, se for o caso, recriem o repositório.

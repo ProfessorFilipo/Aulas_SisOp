@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Confere se a entrega está completa e no formato pedido. FORNECIDO.
+Confere se o trabalho está completo e no formato pedido. FORNECIDO.
 
-Uso (na pasta do trabalho):   python3 ferramentas/validar_entrega.py [pasta] [--json]
+Uso (na pasta do repositório do grupo):   python3 ferramentas/validar_entrega.py [pasta] [--json]
 
 Saída: lista de ERROS (corrijam antes de entregar) e AVISOS. Código de saída 1 se houver erro.
+Também procura alguns padrões de dados sensíveis (matrícula, CPF, e-mail, chaves e tokens), mas
+a responsabilidade de não publicar dados sensíveis é do grupo.
 """
 import csv
 import io
@@ -28,6 +30,16 @@ VEREDITOS = {"CONFIRMADA", "PARCIALMENTE CONFIRMADA", "REFUTADA"}
 GRAFICOS = {"X1": "X1_resposta_media_ms.png", "X2": "X2_cpu.png", "X3": "X3_tempo_por_operacao.png",
             "X4": "X4_open_por_profundidade.png", "X5": "X5_tabelas.png", "X6": "X6_acerto.png",
             "X7": "X7_espera_max_ms.png", "X8": "X8_cpu.png", "X11": "X11_alocacao.png", "X12": "X12_resposta.png"}
+URL_REPO = re.compile(r"https?://[\w.-]+/[\w.-]+/[\w.-]+")
+SENSIVEIS_ERRO = [
+    (re.compile(r"\b\d{3}\.\d{3}\.\d{3}-\d{2}\b"), "parece um CPF"),
+    (re.compile(r"\b(ghp_|gho_|github_pat_)[A-Za-z0-9_]{20,}"), "parece um token do GitHub"),
+    (re.compile(r"\bsk-[A-Za-z0-9_-]{20,}"), "parece uma chave de API"),
+    (re.compile(r"\bAKIA[0-9A-Z]{16}\b"), "parece uma chave da AWS"),
+    (re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----"), "chave privada"),
+]
+EMAIL = re.compile(r"\b[\w.+-]+@[\w-]+\.[\w.-]+\b")
+ARQUIVOS_PROIBIDOS = re.compile(r"(^\.env$|\.pem$|\.key$|^id_rsa)")
 MARCADOR = re.compile(r"\[ ?\]|\[ex\.:|^\s*\[[^\]]*\]\s*$|\*\*: \[")
 CAMINHO = re.compile(r"\b((?:resultados|graficos)/[\w./\-]+)")
 
@@ -68,9 +80,14 @@ def checar_grupo(raiz, a):
     if not 1 <= n <= 4:
         a.erro("grupo.json", "o grupo deve ter de 1 a 4 integrantes (há %d)" % n)
     for i in integrantes:
-        if not i.get("nome") or "Integrante" in i.get("nome", "") or not i.get("matricula") \
-                or set(str(i.get("matricula"))) == {"0"}:
-            a.erro("grupo.json", "preencham nome e matrícula: %r" % i)
+        nome = i.get("nome", "") if isinstance(i, dict) else ""
+        if len(nome.split()) < 2 or "Integrante" in nome:
+            a.erro("grupo.json", "informem o nome completo de cada integrante: %r" % i)
+        if isinstance(i, dict) and set(i) - {"nome"}:
+            a.erro("grupo.json", "o repositório é público: deixem só o nome (sem matrícula ou outros dados) em %r" % i)
+    repo = g.get("repositorio", "")
+    if not URL_REPO.match(repo) or "usuario/nome-do-repositorio" in repo:
+        a.erro("grupo.json", "informem o link do repositório público do grupo em \"repositorio\"")
     modulos = g.get("modulos", [])
     desconhecidos = [m for m in modulos if m not in EXP_DO_MODULO]
     if desconhecidos:
@@ -150,6 +167,19 @@ def checar_relatorio(raiz, g, a):
         return
     with open(p, encoding="utf-8") as f:
         texto = f.read()
+    m = re.search(r"^\*\*Integrantes:\*\*[ \t]*(.*)$", texto, re.M)
+    if not m or not m.group(1).strip() or MARCADOR.search(m.group(1)):
+        a.erro("RELATORIO.md", "a linha **Integrantes:** deve trazer o nome completo de todos os integrantes")
+    else:
+        for i in g.get("integrantes", []):
+            nome = i.get("nome", "") if isinstance(i, dict) else ""
+            if nome and nome.lower() not in m.group(1).lower():
+                a.erro("RELATORIO.md", "integrante de grupo.json ausente na linha **Integrantes:**: %s" % nome)
+    m = re.search(r"^\*\*Repositório:\*\*[ \t]*(.*)$", texto, re.M)
+    if not m or not URL_REPO.search(m.group(1)) or "usuario/repositorio" in m.group(1):
+        a.erro("RELATORIO.md", "a linha **Repositório:** deve trazer o link do repositório público do grupo")
+    elif g.get("repositorio") and g["repositorio"].rstrip("/") not in m.group(1):
+        a.aviso("RELATORIO.md", "o link do relatório difere do informado em grupo.json")
     if "INSTRUÇÕES DO MODELO" in texto:
         a.aviso("RELATORIO.md", "apaguem o bloco de instruções do modelo")
     for s in SECOES:
@@ -191,13 +221,41 @@ def checar_relatorio(raiz, g, a):
 
 
 def checar_pasta(raiz, a):
+    """Arquivos grandes e padrões de dados sensíveis (o repositório é público)."""
+    achou = False
     for dirpath, dirs, arqs in os.walk(raiz):
-        if "__pycache__" in dirs:
-            dirs.remove("__pycache__")
+        for ignorar in ("__pycache__", ".git", "cargas", "resultados", "graficos", ".venv", "venv"):
+            if ignorar in dirs:
+                dirs.remove(ignorar)
         for nome in arqs:
             c = os.path.join(dirpath, nome)
+            rel = os.path.relpath(c, raiz)
             if os.path.getsize(c) > 20 * 2 ** 20:
-                a.aviso(os.path.relpath(c, raiz), "arquivo com mais de 20 MiB")
+                a.aviso(rel, "arquivo com mais de 20 MiB")
+            if ARQUIVOS_PROIBIDOS.search(nome):
+                a.erro(rel, "arquivo que costuma conter segredos: não pode ir para o repositório público")
+                achou = True
+                continue
+            if not nome.endswith((".py", ".md", ".json", ".txt", ".csv", ".cfg", ".ini", ".yml", ".yaml", ".toml")):
+                continue
+            try:
+                with open(c, encoding="utf-8") as f:
+                    texto = f.read()
+            except (UnicodeDecodeError, OSError):
+                continue
+            for padrao, descricao in SENSIVEIS_ERRO:
+                if padrao.search(texto):
+                    a.erro(rel, "possível dado sensível: %s" % descricao)
+                    achou = True
+            emails = [e for e in EMAIL.findall(texto) if not e.endswith(("example.com", "exemplo.com"))]
+            if emails:
+                a.aviso(rel, "contém e-mail (%s): o repositório é público, confiram se pode ficar" % emails[0])
+                achou = True
+            if nome in ("grupo.json", "RELATORIO.md") and re.search(r"\b\d{8,9}\b", texto):
+                a.aviso(rel, "contém número que parece matrícula: não publiquem matrículas")
+                achou = True
+    if not achou:
+        a.ok("dados sensíveis", "nenhum padrão suspeito encontrado (a conferência final é do grupo)")
 
 
 def main():

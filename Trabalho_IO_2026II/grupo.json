@@ -1,7 +1,8 @@
 {
   "integrantes": [
-    {"nome": "Nome Completo do Integrante 1", "matricula": "00000000"}
+    {"nome": "Nome Completo do Integrante 1"}
   ],
+  "repositorio": "https://github.com/usuario/nome-do-repositorio",
   "modulos": [],
   "integracao": false,
   "bonus_flash": false,
