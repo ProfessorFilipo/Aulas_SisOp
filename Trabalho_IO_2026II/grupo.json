@@ -1,0 +1,9 @@
+{
+  "integrantes": [
+    {"nome": "Nome Completo do Integrante 1", "matricula": "00000000"}
+  ],
+  "modulos": [],
+  "integracao": false,
+  "bonus_flash": false,
+  "observacoes": ""
+}

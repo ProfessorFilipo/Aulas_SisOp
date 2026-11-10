@@ -1,0 +1,67 @@
+# Exemplo da carga do X4 com profundidade 5 (o X4 gera as profundidades 1 a 10)
+0.0 P1 mkdir /n1
+0.5 P1 mkdir /n1/n2
+1.0 P1 mkdir /n1/n2/n3
+1.5 P1 mkdir /n1/n2/n3/n4
+2.0 P1 mkdir /n1/n2/n3/n4/n5
+2.5 P1 create /n1/n2/n3/n4/n5/f.txt 4096
+3.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+3.5 P2 read h1 4096
+4.0 P2 close h1
+4.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+5.0 P2 read h1 4096
+5.5 P2 close h1
+6.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+6.5 P2 read h1 4096
+7.0 P2 close h1
+7.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+8.0 P2 read h1 4096
+8.5 P2 close h1
+9.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+9.5 P2 read h1 4096
+10.0 P2 close h1
+10.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+11.0 P2 read h1 4096
+11.5 P2 close h1
+12.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+12.5 P2 read h1 4096
+13.0 P2 close h1
+13.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+14.0 P2 read h1 4096
+14.5 P2 close h1
+15.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+15.5 P2 read h1 4096
+16.0 P2 close h1
+16.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+17.0 P2 read h1 4096
+17.5 P2 close h1
+18.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+18.5 P2 read h1 4096
+19.0 P2 close h1
+19.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+20.0 P2 read h1 4096
+20.5 P2 close h1
+21.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+21.5 P2 read h1 4096
+22.0 P2 close h1
+22.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+23.0 P2 read h1 4096
+23.5 P2 close h1
+24.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+24.5 P2 read h1 4096
+25.0 P2 close h1
+25.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+26.0 P2 read h1 4096
+26.5 P2 close h1
+27.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+27.5 P2 read h1 4096
+28.0 P2 close h1
+28.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+29.0 P2 read h1 4096
+29.5 P2 close h1
+30.0 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+30.5 P2 read h1 4096
+31.0 P2 close h1
+31.5 P2 open /n1/n2/n3/n4/n5/f.txt r h1
+32.0 P2 read h1 4096
+32.5 P2 close h1

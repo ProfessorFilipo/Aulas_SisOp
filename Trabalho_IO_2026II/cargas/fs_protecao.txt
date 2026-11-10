@@ -1,0 +1,524 @@
+# Carga padronizada fs_protecao (semente 2026)
+# tempo_ms processo operacao argumentos
+0.0 P1 usuario alice
+0.5 P2 usuario bob
+1.0 P3 usuario carol
+1.5 P0 mkdir /home
+2.0 P1 mkdir /home/alice
+2.5 P1 create /home/alice/notas.txt 8192
+3.0 P1 create /home/alice/conta.txt 4096
+3.5 P1 chmod /home/alice/notas.txt 600
+4.0 P1 chmod /home/alice/conta.txt 666
+4.5 P2 open /home/alice/notas.txt r h1
+5.0 P2 chmod /home/alice/notas.txt 666
+5.5 P1 setacl /home/alice/notas.txt usuario00 r--
+6.0 P1 setacl /home/alice/notas.txt usuario01 r--
+6.5 P1 setacl /home/alice/notas.txt usuario02 r--
+7.0 P1 setacl /home/alice/notas.txt usuario03 r--
+7.5 P1 setacl /home/alice/notas.txt usuario04 r--
+8.0 P1 setacl /home/alice/notas.txt usuario05 r--
+8.5 P1 setacl /home/alice/notas.txt usuario06 r--
+9.0 P1 setacl /home/alice/notas.txt usuario07 r--
+9.5 P1 setacl /home/alice/notas.txt usuario08 r--
+10.0 P1 setacl /home/alice/notas.txt usuario09 r--
+10.5 P1 setacl /home/alice/notas.txt bob r--
+11.0 P2 open /home/alice/notas.txt r h1
+11.5 P2 read h1 4096
+12.0 P2 read h1 4096
+12.5 P2 close h1
+13.0 P3 open /home/alice/notas.txt r h1
+13.5 P2 open /home/alice/notas.txt w h9
+14.0 P1 open /home/alice/notas.txt r h1
+14.5 P1 read h1 4096
+15.0 P1 read h1 4096
+15.5 P1 close h1
+16.0 P2 open /home/alice/notas.txt r h1
+16.5 P2 read h1 4096
+17.0 P2 read h1 4096
+17.5 P2 close h1
+18.0 P3 open /home/alice/notas.txt r h1
+18.5 P2 open /home/alice/notas.txt w h9
+19.0 P1 open /home/alice/notas.txt r h1
+19.5 P1 read h1 4096
+20.0 P1 read h1 4096
+20.5 P1 close h1
+21.0 P2 open /home/alice/notas.txt r h1
+21.5 P2 read h1 4096
+22.0 P2 read h1 4096
+22.5 P2 close h1
+23.0 P3 open /home/alice/notas.txt r h1
+23.5 P2 open /home/alice/notas.txt w h9
+24.0 P1 open /home/alice/notas.txt r h1
+24.5 P1 read h1 4096
+25.0 P1 read h1 4096
+25.5 P1 close h1
+26.0 P2 open /home/alice/notas.txt r h1
+26.5 P2 read h1 4096
+27.0 P2 read h1 4096
+27.5 P2 close h1
+28.0 P3 open /home/alice/notas.txt r h1
+28.5 P2 open /home/alice/notas.txt w h9
+29.0 P1 open /home/alice/notas.txt r h1
+29.5 P1 read h1 4096
+30.0 P1 read h1 4096
+30.5 P1 close h1
+31.0 P2 open /home/alice/notas.txt r h1
+31.5 P2 read h1 4096
+32.0 P2 read h1 4096
+32.5 P2 close h1
+33.0 P3 open /home/alice/notas.txt r h1
+33.5 P2 open /home/alice/notas.txt w h9
+34.0 P1 open /home/alice/notas.txt r h1
+34.5 P1 read h1 4096
+35.0 P1 read h1 4096
+35.5 P1 close h1
+36.0 P2 open /home/alice/notas.txt r h1
+36.5 P2 read h1 4096
+37.0 P2 read h1 4096
+37.5 P2 close h1
+38.0 P3 open /home/alice/notas.txt r h1
+38.5 P2 open /home/alice/notas.txt w h9
+39.0 P1 open /home/alice/notas.txt r h1
+39.5 P1 read h1 4096
+40.0 P1 read h1 4096
+40.5 P1 close h1
+41.0 P2 open /home/alice/notas.txt r h1
+41.5 P2 read h1 4096
+42.0 P2 read h1 4096
+42.5 P2 close h1
+43.0 P3 open /home/alice/notas.txt r h1
+43.5 P2 open /home/alice/notas.txt w h9
+44.0 P1 open /home/alice/notas.txt r h1
+44.5 P1 read h1 4096
+45.0 P1 read h1 4096
+45.5 P1 close h1
+46.0 P2 open /home/alice/notas.txt r h1
+46.5 P2 read h1 4096
+47.0 P2 read h1 4096
+47.5 P2 close h1
+48.0 P3 open /home/alice/notas.txt r h1
+48.5 P2 open /home/alice/notas.txt w h9
+49.0 P1 open /home/alice/notas.txt r h1
+49.5 P1 read h1 4096
+50.0 P1 read h1 4096
+50.5 P1 close h1
+51.0 P2 open /home/alice/notas.txt r h1
+51.5 P2 read h1 4096
+52.0 P2 read h1 4096
+52.5 P2 close h1
+53.0 P3 open /home/alice/notas.txt r h1
+53.5 P2 open /home/alice/notas.txt w h9
+54.0 P1 open /home/alice/notas.txt r h1
+54.5 P1 read h1 4096
+55.0 P1 read h1 4096
+55.5 P1 close h1
+56.0 P2 open /home/alice/notas.txt r h1
+56.5 P2 read h1 4096
+57.0 P2 read h1 4096
+57.5 P2 close h1
+58.0 P3 open /home/alice/notas.txt r h1
+58.5 P2 open /home/alice/notas.txt w h9
+59.0 P1 open /home/alice/notas.txt r h1
+59.5 P1 read h1 4096
+60.0 P1 read h1 4096
+60.5 P1 close h1
+61.0 P2 open /home/alice/notas.txt r h1
+61.5 P2 read h1 4096
+62.0 P2 read h1 4096
+62.5 P2 close h1
+63.0 P3 open /home/alice/notas.txt r h1
+63.5 P2 open /home/alice/notas.txt w h9
+64.0 P1 open /home/alice/notas.txt r h1
+64.5 P1 read h1 4096
+65.0 P1 read h1 4096
+65.5 P1 close h1
+66.0 P2 open /home/alice/notas.txt r h1
+66.5 P2 read h1 4096
+67.0 P2 read h1 4096
+67.5 P2 close h1
+68.0 P3 open /home/alice/notas.txt r h1
+68.5 P2 open /home/alice/notas.txt w h9
+69.0 P1 open /home/alice/notas.txt r h1
+69.5 P1 read h1 4096
+70.0 P1 read h1 4096
+70.5 P1 close h1
+71.0 P2 open /home/alice/notas.txt r h1
+71.5 P2 read h1 4096
+72.0 P2 read h1 4096
+72.5 P2 close h1
+73.0 P3 open /home/alice/notas.txt r h1
+73.5 P2 open /home/alice/notas.txt w h9
+74.0 P1 open /home/alice/notas.txt r h1
+74.5 P1 read h1 4096
+75.0 P1 read h1 4096
+75.5 P1 close h1
+76.0 P2 open /home/alice/notas.txt r h1
+76.5 P2 read h1 4096
+77.0 P2 read h1 4096
+77.5 P2 close h1
+78.0 P3 open /home/alice/notas.txt r h1
+78.5 P2 open /home/alice/notas.txt w h9
+79.0 P1 open /home/alice/notas.txt r h1
+79.5 P1 read h1 4096
+80.0 P1 read h1 4096
+80.5 P1 close h1
+81.0 P2 open /home/alice/notas.txt r h1
+81.5 P2 read h1 4096
+82.0 P2 read h1 4096
+82.5 P2 close h1
+83.0 P3 open /home/alice/notas.txt r h1
+83.5 P2 open /home/alice/notas.txt w h9
+84.0 P1 open /home/alice/notas.txt r h1
+84.5 P1 read h1 4096
+85.0 P1 read h1 4096
+85.5 P1 close h1
+86.0 P2 open /home/alice/notas.txt r h1
+86.5 P2 read h1 4096
+87.0 P2 read h1 4096
+87.5 P2 close h1
+88.0 P3 open /home/alice/notas.txt r h1
+88.5 P2 open /home/alice/notas.txt w h9
+89.0 P1 open /home/alice/notas.txt r h1
+89.5 P1 read h1 4096
+90.0 P1 read h1 4096
+90.5 P1 close h1
+91.0 P2 open /home/alice/notas.txt r h1
+91.5 P2 read h1 4096
+92.0 P2 read h1 4096
+92.5 P2 close h1
+93.0 P3 open /home/alice/notas.txt r h1
+93.5 P2 open /home/alice/notas.txt w h9
+94.0 P1 open /home/alice/notas.txt r h1
+94.5 P1 read h1 4096
+95.0 P1 read h1 4096
+95.5 P1 close h1
+96.0 P2 open /home/alice/notas.txt r h1
+96.5 P2 read h1 4096
+97.0 P2 read h1 4096
+97.5 P2 close h1
+98.0 P3 open /home/alice/notas.txt r h1
+98.5 P2 open /home/alice/notas.txt w h9
+99.0 P1 open /home/alice/notas.txt r h1
+99.5 P1 read h1 4096
+100.0 P1 read h1 4096
+100.5 P1 close h1
+101.0 P2 open /home/alice/notas.txt r h1
+101.5 P2 read h1 4096
+102.0 P2 read h1 4096
+102.5 P2 close h1
+103.0 P3 open /home/alice/notas.txt r h1
+103.5 P2 open /home/alice/notas.txt w h9
+104.0 P1 open /home/alice/notas.txt r h1
+104.5 P1 read h1 4096
+105.0 P1 read h1 4096
+105.5 P1 close h1
+106.0 P2 open /home/alice/notas.txt r h1
+106.5 P2 read h1 4096
+107.0 P2 read h1 4096
+107.5 P2 close h1
+108.0 P3 open /home/alice/notas.txt r h1
+108.5 P2 open /home/alice/notas.txt w h9
+109.0 P1 open /home/alice/notas.txt r h1
+109.5 P1 read h1 4096
+110.0 P1 read h1 4096
+110.5 P1 close h1
+111.0 P1 open /home/alice/conta.txt rw h1
+111.5 P2 open /home/alice/conta.txt rw h2
+112.0 P1 lock h1
+112.5 P2 lock h2
+113.0 P2 write h2 100
+113.5 P1 seek h1 0
+114.0 P1 write h1 80
+114.5 P1 unlock h1
+115.0 P2 lock h2
+115.5 P2 seek h2 0
+116.0 P2 write h2 100
+116.5 P1 read h1 100
+117.0 P2 unlock h2
+117.5 P2 close h2
+118.0 P1 close h1
+118.5 P1 open /home/alice/conta.txt rw h1
+119.0 P2 open /home/alice/conta.txt rw h2
+119.5 P1 lock h1
+120.0 P2 lock h2
+120.5 P2 write h2 100
+121.0 P1 seek h1 0
+121.5 P1 write h1 131
+122.0 P1 unlock h1
+122.5 P2 lock h2
+123.0 P2 seek h2 0
+123.5 P2 write h2 100
+124.0 P1 read h1 100
+124.5 P2 unlock h2
+125.0 P2 close h2
+125.5 P1 close h1
+126.0 P1 open /home/alice/conta.txt rw h1
+126.5 P2 open /home/alice/conta.txt rw h2
+127.0 P1 lock h1
+127.5 P2 lock h2
+128.0 P2 write h2 100
+128.5 P1 seek h1 0
+129.0 P1 write h1 178
+129.5 P1 unlock h1
+130.0 P2 lock h2
+130.5 P2 seek h2 0
+131.0 P2 write h2 100
+131.5 P1 read h1 100
+132.0 P2 unlock h2
+132.5 P2 close h2
+133.0 P1 close h1
+133.5 P1 open /home/alice/conta.txt rw h1
+134.0 P2 open /home/alice/conta.txt rw h2
+134.5 P1 lock h1
+135.0 P2 lock h2
+135.5 P2 write h2 100
+136.0 P1 seek h1 0
+136.5 P1 write h1 181
+137.0 P1 unlock h1
+137.5 P2 lock h2
+138.0 P2 seek h2 0
+138.5 P2 write h2 100
+139.0 P1 read h1 100
+139.5 P2 unlock h2
+140.0 P2 close h2
+140.5 P1 close h1
+141.0 P1 open /home/alice/conta.txt rw h1
+141.5 P2 open /home/alice/conta.txt rw h2
+142.0 P1 lock h1
+142.5 P2 lock h2
+143.0 P2 write h2 100
+143.5 P1 seek h1 0
+144.0 P1 write h1 76
+144.5 P1 unlock h1
+145.0 P2 lock h2
+145.5 P2 seek h2 0
+146.0 P2 write h2 100
+146.5 P1 read h1 100
+147.0 P2 unlock h2
+147.5 P2 close h2
+148.0 P1 close h1
+148.5 P1 open /home/alice/conta.txt rw h1
+149.0 P2 open /home/alice/conta.txt rw h2
+149.5 P1 lock h1
+150.0 P2 lock h2
+150.5 P2 write h2 100
+151.0 P1 seek h1 0
+151.5 P1 write h1 107
+152.0 P1 unlock h1
+152.5 P2 lock h2
+153.0 P2 seek h2 0
+153.5 P2 write h2 100
+154.0 P1 read h1 100
+154.5 P2 unlock h2
+155.0 P2 close h2
+155.5 P1 close h1
+156.0 P1 open /home/alice/conta.txt rw h1
+156.5 P2 open /home/alice/conta.txt rw h2
+157.0 P1 lock h1
+157.5 P2 lock h2
+158.0 P2 write h2 100
+158.5 P1 seek h1 0
+159.0 P1 write h1 192
+159.5 P1 unlock h1
+160.0 P2 lock h2
+160.5 P2 seek h2 0
+161.0 P2 write h2 100
+161.5 P1 read h1 100
+162.0 P2 unlock h2
+162.5 P2 close h2
+163.0 P1 close h1
+163.5 P1 open /home/alice/conta.txt rw h1
+164.0 P2 open /home/alice/conta.txt rw h2
+164.5 P1 lock h1
+165.0 P2 lock h2
+165.5 P2 write h2 100
+166.0 P1 seek h1 0
+166.5 P1 write h1 157
+167.0 P1 unlock h1
+167.5 P2 lock h2
+168.0 P2 seek h2 0
+168.5 P2 write h2 100
+169.0 P1 read h1 100
+169.5 P2 unlock h2
+170.0 P2 close h2
+170.5 P1 close h1
+171.0 P1 open /home/alice/conta.txt rw h1
+171.5 P2 open /home/alice/conta.txt rw h2
+172.0 P1 lock h1
+172.5 P2 lock h2
+173.0 P2 write h2 100
+173.5 P1 seek h1 0
+174.0 P1 write h1 196
+174.5 P1 unlock h1
+175.0 P2 lock h2
+175.5 P2 seek h2 0
+176.0 P2 write h2 100
+176.5 P1 read h1 100
+177.0 P2 unlock h2
+177.5 P2 close h2
+178.0 P1 close h1
+178.5 P1 open /home/alice/conta.txt rw h1
+179.0 P2 open /home/alice/conta.txt rw h2
+179.5 P1 lock h1
+180.0 P2 lock h2
+180.5 P2 write h2 100
+181.0 P1 seek h1 0
+181.5 P1 write h1 190
+182.0 P1 unlock h1
+182.5 P2 lock h2
+183.0 P2 seek h2 0
+183.5 P2 write h2 100
+184.0 P1 read h1 100
+184.5 P2 unlock h2
+185.0 P2 close h2
+185.5 P1 close h1
+186.0 P1 open /home/alice/conta.txt rw h1
+186.5 P2 open /home/alice/conta.txt rw h2
+187.0 P1 lock h1
+187.5 P2 lock h2
+188.0 P2 write h2 100
+188.5 P1 seek h1 0
+189.0 P1 write h1 175
+189.5 P1 unlock h1
+190.0 P2 lock h2
+190.5 P2 seek h2 0
+191.0 P2 write h2 100
+191.5 P1 read h1 100
+192.0 P2 unlock h2
+192.5 P2 close h2
+193.0 P1 close h1
+193.5 P1 open /home/alice/conta.txt rw h1
+194.0 P2 open /home/alice/conta.txt rw h2
+194.5 P1 lock h1
+195.0 P2 lock h2
+195.5 P2 write h2 100
+196.0 P1 seek h1 0
+196.5 P1 write h1 200
+197.0 P1 unlock h1
+197.5 P2 lock h2
+198.0 P2 seek h2 0
+198.5 P2 write h2 100
+199.0 P1 read h1 100
+199.5 P2 unlock h2
+200.0 P2 close h2
+200.5 P1 close h1
+201.0 P1 open /home/alice/conta.txt rw h1
+201.5 P2 open /home/alice/conta.txt rw h2
+202.0 P1 lock h1
+202.5 P2 lock h2
+203.0 P2 write h2 100
+203.5 P1 seek h1 0
+204.0 P1 write h1 162
+204.5 P1 unlock h1
+205.0 P2 lock h2
+205.5 P2 seek h2 0
+206.0 P2 write h2 100
+206.5 P1 read h1 100
+207.0 P2 unlock h2
+207.5 P2 close h2
+208.0 P1 close h1
+208.5 P1 open /home/alice/conta.txt rw h1
+209.0 P2 open /home/alice/conta.txt rw h2
+209.5 P1 lock h1
+210.0 P2 lock h2
+210.5 P2 write h2 100
+211.0 P1 seek h1 0
+211.5 P1 write h1 111
+212.0 P1 unlock h1
+212.5 P2 lock h2
+213.0 P2 seek h2 0
+213.5 P2 write h2 100
+214.0 P1 read h1 100
+214.5 P2 unlock h2
+215.0 P2 close h2
+215.5 P1 close h1
+216.0 P1 open /home/alice/conta.txt rw h1
+216.5 P2 open /home/alice/conta.txt rw h2
+217.0 P1 lock h1
+217.5 P2 lock h2
+218.0 P2 write h2 100
+218.5 P1 seek h1 0
+219.0 P1 write h1 50
+219.5 P1 unlock h1
+220.0 P2 lock h2
+220.5 P2 seek h2 0
+221.0 P2 write h2 100
+221.5 P1 read h1 100
+222.0 P2 unlock h2
+222.5 P2 close h2
+223.0 P1 close h1
+223.5 P1 open /home/alice/conta.txt rw h1
+224.0 P2 open /home/alice/conta.txt rw h2
+224.5 P1 lock h1
+225.0 P2 lock h2
+225.5 P2 write h2 100
+226.0 P1 seek h1 0
+226.5 P1 write h1 70
+227.0 P1 unlock h1
+227.5 P2 lock h2
+228.0 P2 seek h2 0
+228.5 P2 write h2 100
+229.0 P1 read h1 100
+229.5 P2 unlock h2
+230.0 P2 close h2
+230.5 P1 close h1
+231.0 P1 open /home/alice/conta.txt rw h1
+231.5 P2 open /home/alice/conta.txt rw h2
+232.0 P1 lock h1
+232.5 P2 lock h2
+233.0 P2 write h2 100
+233.5 P1 seek h1 0
+234.0 P1 write h1 78
+234.5 P1 unlock h1
+235.0 P2 lock h2
+235.5 P2 seek h2 0
+236.0 P2 write h2 100
+236.5 P1 read h1 100
+237.0 P2 unlock h2
+237.5 P2 close h2
+238.0 P1 close h1
+238.5 P1 open /home/alice/conta.txt rw h1
+239.0 P2 open /home/alice/conta.txt rw h2
+239.5 P1 lock h1
+240.0 P2 lock h2
+240.5 P2 write h2 100
+241.0 P1 seek h1 0
+241.5 P1 write h1 123
+242.0 P1 unlock h1
+242.5 P2 lock h2
+243.0 P2 seek h2 0
+243.5 P2 write h2 100
+244.0 P1 read h1 100
+244.5 P2 unlock h2
+245.0 P2 close h2
+245.5 P1 close h1
+246.0 P1 open /home/alice/conta.txt rw h1
+246.5 P2 open /home/alice/conta.txt rw h2
+247.0 P1 lock h1
+247.5 P2 lock h2
+248.0 P2 write h2 100
+248.5 P1 seek h1 0
+249.0 P1 write h1 75
+249.5 P1 unlock h1
+250.0 P2 lock h2
+250.5 P2 seek h2 0
+251.0 P2 write h2 100
+251.5 P1 read h1 100
+252.0 P2 unlock h2
+252.5 P2 close h2
+253.0 P1 close h1
+253.5 P1 open /home/alice/conta.txt rw h1
+254.0 P2 open /home/alice/conta.txt rw h2
+254.5 P1 lock h1
+255.0 P2 lock h2
+255.5 P2 write h2 100
+256.0 P1 seek h1 0
+256.5 P1 write h1 165
+257.0 P1 unlock h1
+257.5 P2 lock h2
+258.0 P2 seek h2 0
+258.5 P2 write h2 100
+259.0 P1 read h1 100
+259.5 P2 unlock h2
+260.0 P2 close h2
+260.5 P1 close h1
