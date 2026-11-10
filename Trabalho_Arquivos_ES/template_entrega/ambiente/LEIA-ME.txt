@@ -1,3 +1,0 @@
-# Coloque aqui a saída de:  python3 ../ferramentas/coletar_ambiente.py --sistema S1 --saida ambiente/ --caminhos <pastas de teste>
-# Um arquivo ambiente_S1.json por sistema operacional testado.
-# Apague este arquivo LEIA-ME.txt antes de entregar.

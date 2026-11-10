@@ -1,3 +1,0 @@
-# Coloque aqui todo o código-fonte do grupo e o script executar_tudo (.sh, .ps1 ou .py)
-# que reproduz TODOS os experimentos e gera os CSVs de resultados/ e os logs de logs/.
-# Apague este arquivo LEIA-ME.txt antes de entregar.
