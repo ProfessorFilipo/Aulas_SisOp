@@ -5,9 +5,10 @@ Sistemas Operacionais · PUCRS · Prof. Filipo Novo Mór · [filipomor.com](http
 Atividade em **duplas**, feita **em aula** (cerca de 1h15). **Não há entrega.** O
 roteiro completo está no arquivo `Roteiro_Deteccao_Virus.docx`, nesta mesma pasta.
 
-Vocês vão escrever, em Python puro, as peças centrais de um antivírus: identificar
-um arquivo pelo conteúdo (não pela extensão), procurar assinaturas de "praga" e
-detectar adulteração por hash. Tudo isso é gestão de arquivos e de E/S na prática.
+Esta é uma aula de **gestão de arquivos**: vocês vão fazer o sistema de arquivos
+dizer, em Python puro, **o que** cada arquivo é (tipo, pelo conteúdo e não pela
+extensão), **onde** o nome e o conteúdo moram, e **o que mudou** (integridade e
+atributos do FCB/inode). O antivírus é só a lente que dá sentido a tudo isso.
 
 ## Requisitos
 
@@ -28,15 +29,19 @@ como `(TODO)` no relatório, então dá para implementar e rodar **uma etapa de 
 
 ## O que implementar
 
-Abram `detector.py` e preencham os cinco trechos marcados com `TODO`:
+Abram `detector.py` e preencham os seis trechos marcados com `TODO`:
 
 | Etapa | Função | O que faz |
 |---|---|---|
-| 1 | `identificar_tipo` | Descobre o tipo real pelo *magic number* (os primeiros bytes) |
+| 1 | `identificar_tipo` | Tipo real pelo *magic number* (os primeiros bytes do conteúdo) |
 | 2 | `varrer_pragas` | Procura assinaturas de praga em qualquer posição do arquivo |
-| 3 | `extensao_coerente` | Acusa quando a extensão não bate com o conteúdo |
-| 4A | `sha256_arquivo` | Calcula o hash SHA-256 de um arquivo |
-| 4B | `verificar_integridade` | Compara uma pasta com a linha de base e acha o que mudou |
+| 3 | `extensao_coerente` | Acusa quando o nome (extensão) não bate com o conteúdo |
+| 4A | `sha256_arquivo` | Calcula o hash SHA-256 do conteúdo |
+| 4B | `verificar_integridade` | Percorre uma pasta e acha o que mudou em relação à linha de base |
+| 4C | `atributos` | Lê o tamanho e a data que o FCB/inode guarda (`os.stat`) |
+
+A etapa 4C alimenta uma demonstração pronta: a **data de um arquivo é forjável**
+(`os.utime`), mas o **hash do conteúdo** não — metadado × conteúdo.
 
 As instruções de cada função estão no próprio `detector.py`, logo acima do `TODO`.
 
