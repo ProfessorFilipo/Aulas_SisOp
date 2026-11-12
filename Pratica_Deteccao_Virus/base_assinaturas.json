@@ -1,0 +1,75 @@
+{
+  "_comentario": "Base de demonstracao da aula. 'tipos' usa magic numbers reais; 'pragas' usa assinaturas INVENTADAS, so para esta atividade.",
+  "tipos": [
+    {
+      "nome": "PNG (imagem)",
+      "magic_hex": "89504E470D0A1A0A",
+      "extensoes": [
+        "png"
+      ]
+    },
+    {
+      "nome": "JPEG (imagem)",
+      "magic_hex": "FFD8FF",
+      "extensoes": [
+        "jpg",
+        "jpeg"
+      ]
+    },
+    {
+      "nome": "GIF (imagem)",
+      "magic_hex": "474946383961",
+      "extensoes": [
+        "gif"
+      ]
+    },
+    {
+      "nome": "PDF (documento)",
+      "magic_hex": "255044462D",
+      "extensoes": [
+        "pdf"
+      ]
+    },
+    {
+      "nome": "ZIP (arquivo compactado)",
+      "magic_hex": "504B0304",
+      "extensoes": [
+        "zip"
+      ]
+    },
+    {
+      "nome": "ELF (executavel Linux)",
+      "magic_hex": "7F454C46",
+      "extensoes": [
+        "bin",
+        "run",
+        ""
+      ]
+    },
+    {
+      "nome": "PE/EXE (executavel Windows)",
+      "magic_hex": "4D5A",
+      "extensoes": [
+        "exe",
+        "dll"
+      ]
+    },
+    {
+      "nome": "Java .class",
+      "magic_hex": "CAFEBABE",
+      "extensoes": [
+        "class"
+      ]
+    }
+  ],
+  "pragas": [
+    {
+      "nome": "Praga-Demo-Alfa",
+      "padrao_hex": "5349534F503A3A50524147412D44454D4F3A3A414C46413A3A32303236"
+    },
+    {
+      "nome": "Praga-Demo-Beta",
+      "padrao_hex": "5349534F503A3A50524147412D44454D4F3A3A424554413A3A32303236"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+Arquivo de texto comum, sem cabecalho binario.
+A extensao .txt combina com o conteudo.

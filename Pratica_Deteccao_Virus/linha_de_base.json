@@ -1,0 +1,10 @@
+{
+  "_comentario": "Linha de base (hashes SHA-256) da pasta instalacao/ integra. Compare instalacao_depois/ com esta linha de base.",
+  "algoritmo": "sha256",
+  "arquivos": {
+    "app.py": "50bbc9cbf820c0e5259f637f5690a3d635ee828b06f189eb90657467c4a277af",
+    "config.ini": "329e6bd28be9d9f4336793832dd7ed8d4c191f8e28172430e4a0a36d36a13f8b",
+    "leia-me.txt": "62e6916bac34531bdbf861129d3b74536ff1b0f55d1bf8db512183255723a558",
+    "nucleo.dat": "f2d9c4a5dd79c8229275f99815dcec842ad8e0f0ba70deae5d164ec511f7e198"
+  }
+}

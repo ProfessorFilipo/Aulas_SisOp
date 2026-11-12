@@ -1,0 +1,1 @@
+MZ Este arquivo tem extensao .txt, mas comeca com 'MZ', a assinatura de um executavel do Windows. A extensao mente.
